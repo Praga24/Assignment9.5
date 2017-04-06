@@ -1,0 +1,47 @@
+1. Explain the core components of flume.
+The core components of Flume are
+Event:
+An event is a unit of data flow that flows through the flume agent.
+It flows from source-channel-sink.
+
+Source:
+This is the component through which data enters Flume workflows.A source in Flume produces events and delivers
+them to the channel.
+
+Sink:
+It transfers the data to the destination, (mostly hdfs).
+
+Channel:
+It is the medium between the source and the sink which stores the events until they are forwarded to the sink.
+
+Agent:
+A flume agent is a long lived java process that connects the source-sink through the channels.
+Agents are configured to run a collection of particular sources and sinks.
+
+
+2. Can flume provide 100% reliability while transfering the data.
+Yes, Flume can provide 100% reliability while transfering the data.
+As it follows a transactional based approach and it uses a seperate transactions for guarantee delivery 
+between source to channel and the channel to sink.
+
+3.Explain the consolidation in flume.
+In Flume the flume source can collect data from from different data flow even if it is from
+different flume agent and consolidate it and transfer it through channel , sink to the hdfs.
+
+ex: agent1:source-channel-sink 
+                               *
+                                 * = == source-channel-sink
+                                 *              agent3
+    agent2:source-channel-sink *
+
+4. Explain what is an event in flume.
+    An event is a unit of data flow that flows through the flume agent.
+    It flows from source-channel-sink.
+    A source in Flume produces events and delivers
+    them to the channel, which stores the events until they are forwarded to the sink.   
+
+5. Explain what is an agent in flume.
+  A flume agent is a long lived java process that connects the source-sink through the channels.
+  Agents are configured to run a collection of particular sources and sinks.
+  A Flume agent can be started with the flume-ng command.
+
